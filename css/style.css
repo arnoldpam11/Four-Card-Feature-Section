@@ -1,0 +1,154 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--red: hsl(0, 78%, 62%);
+	--cyan: hsl(180, 62%, 55%);
+	--orange: hsl(34, 97%, 64%);
+	--blue: hsl(212, 86%, 64%);
+	--very-dark-blue: hsl(234, 12%, 34%);
+	--grayish-blue: hsl(229, 6%, 66%);
+	--very-light-gray: hsl(0, 0%, 98%);
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: var(--very-light-gray);
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+/* Global */
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.container {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header .lead,
+.cards .card-lead {
+	font-weight: 400;
+	color: var(--grayish-blue);
+}
+
+/* Header */
+
+header {
+	text-align: center;
+	padding: 1rem;
+}
+
+header .reliable-fast-delivery {
+	font-weight: 200;
+	color: var(--very-dark-blue);
+}
+
+header .tech {
+	font-weight: 600;
+    color: var(--very-dark-blue);
+	margin-bottom: 1rem;
+}
+
+header .lead {
+	max-width: 500px;
+	margin-bottom: 4rem;
+}
+
+/* Showcase & Cards */
+
+.showcase .grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+}
+
+.cards .card {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 8px 10px rgba(77, 131, 131, 0.3);
+	padding: 1.5rem;
+}
+.cards .card-title {
+	color: var(--very-dark-blue);
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.cards img {
+	float: right;
+	margin-top: 4rem;
+}
+
+.cards .card-1 {
+	border-top: 5px solid var(--cyan);
+}
+
+.cards .card-2 {
+	border-top: 5px solid var(--red);
+}
+
+.cards .card-3 {
+	border-top: 5px solid var(--orange);
+}
+
+.cards .card-4 {
+	border-top: 5px solid var(--blue);
+}
+
+/* Media Queries */
+
+@media (min-width: 48em) {
+	.showcase .grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 64em) {
+    .reliable-fast-delivery, .tech {
+        font-size: 2.5rem;
+    }
+
+	.showcase .grid {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-areas:
+			'start mid1 end'
+			'start mid2 end';
+	}
+
+	.card {
+		max-width: 360px;
+	}
+
+	.card-1 {
+		grid-area: start;
+		align-self: center;
+	}
+
+	.card-2 {
+		grid-area: mid1;
+	}
+	.card-3 {
+		grid-area: mid2;
+	}
+	.card-4 {
+		grid-area: end;
+		align-self: center;
+	}
+}
+
